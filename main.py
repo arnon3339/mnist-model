@@ -32,7 +32,11 @@ if __name__ == "__main__":
     parser.add_argument('-dr', '--dropout-rate', default=0.2, type=float, help='Drop rate')
     args = parser.parse_args()
 
-    if args.tune:
+    if args.model_format == "lite":
+        model.train.keras2tflite()
+    elif args.model_format == "onnx":
+        model.train.keras2onnx()
+    elif args.tune:
         tune.run(args.number_trials)
     elif args.optimized:
         if args.fit:

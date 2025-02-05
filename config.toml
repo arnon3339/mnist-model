@@ -13,6 +13,7 @@ dataset = "./assets/data/dataset.csv"
 h5 = "output/models/mnist_cnn.h5"
 keras = "output/models/mnist_cnn.keras"
 onnx = "output/models/mnist_cnn.onnx" 
+tflite = "output/models/mnist_cnn.tflite"
 
 [tunning]
 learning_rate = [1e-4, 1e-2]
