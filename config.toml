@@ -1,0 +1,22 @@
+[optimize]
+learning_rate = 0.0013
+number_filters = 32
+dropout_rate = 0.29
+epochs = 10
+batch_size = 32
+
+[path]
+image_zip = "./assets/images/compress/mnist.zip"
+dataset = "./assets/data/dataset.csv"
+
+[path.model]
+h5 = "output/models/mnist_cnn.h5"
+keras = "output/models/mnist_cnn.keras"
+onnx = "output/models/mnist_cnn.onnx" 
+
+[tunning]
+learning_rate = [1e-4, 1e-2]
+dropout_rate = [0.1, 0.5]
+number_filters = [32, 64, 128]
+epochs = 10
+batch_size = 32
