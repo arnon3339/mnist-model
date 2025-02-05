@@ -19,6 +19,9 @@ def train_model(export='keras', num_filters=32, dropout_rate=0.2, lr=1e-4):
     model_keras = tf.keras.models.load_model(CONFIG['path']['model']['keras'])
     model_keras.save(CONFIG['path']['model']['h5'], save_format="h5")
 
+    if export == "onnx":
+        keras2onnx()
+
 def keras2tflite():
     model = tf.keras.models.load_model(CONFIG['path']['model']['keras'])
     converter = tf.lite.TFLiteConverter.from_keras_model(model)

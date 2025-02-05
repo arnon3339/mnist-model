@@ -4,6 +4,13 @@ from modules.tunning import optuna_tune as tune
 import toml
 import random
 import builtins
+import os
+
+try:
+    os.makedirs("output/models")
+    os.makedirs("assets/data")
+except:
+    pass
 
 
 random.seed(123456)
@@ -14,6 +21,7 @@ with open("config.toml", "r") as f:
 if __name__ == "__main__":
     """ Train model
     """
+
     parser = argparse.ArgumentParser(
         prog="Drawing digit classifier",
         description="The application use CNN to classify drawing digit.",
