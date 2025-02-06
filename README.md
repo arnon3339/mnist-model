@@ -132,3 +132,9 @@ Live deployment available on Vercel:
 - Deployment: [mnist-project](https://github.com/arnon3339/mnist-project.git)
 - CNN model: [mnits-model](https://github.com/arnon3339/mnist-model.git)
 - Docker deployment: *(Coming soon)*
+
+---
+
+🚀 **Now you're ready to train and deploy your CNN model for digit recognition!**
+
+---
