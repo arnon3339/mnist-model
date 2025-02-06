@@ -1,9 +1,19 @@
+[default]
+learning_rate = 1e-4
+number_filters = 32
+dropout_rate = 0.2
+epochs = 10
+batch_size = 32
+export = "keras"
+number_trails = 10
+
 [optimize]
 learning_rate = 0.0013
 number_filters = 32
 dropout_rate = 0.29
 epochs = 10
 batch_size = 32
+number_trails = 10
 
 [path]
 image_zip = "./assets/images/compress/mnist.zip"
@@ -21,3 +31,4 @@ dropout_rate = [0.1, 0.5]
 number_filters = [32, 64, 128]
 epochs = 10
 batch_size = 32
+number_trails = 10

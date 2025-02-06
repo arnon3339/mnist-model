@@ -18,15 +18,6 @@ def objective(trial):
                                                 log=True
                                              )
 
-    # model = Sequential([
-    #     Conv2D(num_filters, (3,3), activation='relu', input_shape=(28,28,1)),
-    #     MaxPooling2D((2,2)),
-    #     Dropout(dropout_rate),
-    #     Flatten(),
-    #     Dense(128, activation='relu'),
-    #     Dropout(dropout_rate),
-    #     Dense(10, activation='softmax')
-    # ])
     model = baseline.baseline_model(num_filters, dropout=dropout_rate, lr=learning_rate)
 
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate),
@@ -41,9 +32,8 @@ def objective(trial):
     
     return accuracy
 
-def run(n_trials=10):
-    # print(CONFIG)
+def run():
     study = optuna.create_study(direction="maximize")
-    study.optimize(objective, n_trials) 
+    study.optimize(objective, CONFIG['tunning']['number_trails']) 
 
     print("Best Hyperparameters:", study.best_params)
