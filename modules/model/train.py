@@ -11,8 +11,8 @@ def train_model(export='keras', num_filters=32, dropout_rate=0.2, lr=1e-4):
         lr=lr
     )
 
-    model.fit(X_train, y_train, epochs=CONFIG['optimize']['epochs'],
-              batch_size=CONFIG['optimize']['batch_size'],
+    model.fit(X_train, y_train, epochs=CONFIG['tuned']['epochs'],
+              batch_size=CONFIG['tuned']['batch_size'],
               validation_data=(X_val, y_val))
     model.save(CONFIG['path']['model']['keras'])
 
@@ -33,8 +33,6 @@ def keras2tflite():
 def keras2onnx():
     model = tf.keras.models.load_model(CONFIG['path']['model']['keras'])
 
-    # Convert to ONNX
-    onnx_model_path = "model.onnx"
     spec = (tf.TensorSpec((None, 28, 28, 1), tf.float32, name="input"),)
     model_proto, _ = tf2onnx.convert.from_keras(model, input_signature=spec, opset=13)
 

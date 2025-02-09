@@ -26,7 +26,7 @@ batch_size = 32
 export = "keras"
 number_trails = 10
 
-[optimize]  # Tuned hyperparameters
+[tuned]  # Tuned hyperparameters
 learning_rate = 0.0013
 number_filters = 32
 dropout_rate = 0.29
@@ -90,7 +90,7 @@ The application use CNN to classify drawing digit.
 
 optional arguments:
   -h, --help            show this help message and exit
-  -op, --optimized      use optimized values
+  -tn, --tuned          use optimized values
   -f, --fit             fit the model
   -t, --tune            fine-tunning the model
   -e, --export          export model
@@ -109,9 +109,9 @@ The hyperparameters and other values can be adjusted through `config.toml`.
 python main.py -t
 ```
 
-### Train the Model with Optimized Hyperparameters
+### Train the Model with fine-tuned Hyperparameters
 ```bash
-python main.py -op -f
+python main.py -tn -f
 ```
 
 ### Convert Model Format to ONNX

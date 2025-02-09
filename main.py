@@ -27,7 +27,7 @@ if __name__ == "__main__":
         prog="Drawing digit classifier",
         description="The application use CNN to classify drawing digit.",
     )
-    parser.add_argument('-op', '--optimized', action='store_true', help="use optimized values")
+    parser.add_argument('-tn', '--tuned', action='store_true', help="use fine-tuned values")
     parser.add_argument('-f', '--fit', action='store_true', help="fit the model")
     parser.add_argument('-t', '--tune', action='store_true', help="fine-tunning the model")
     parser.add_argument('-e', '--export', action='store_true', help="export model")
@@ -39,11 +39,11 @@ if __name__ == "__main__":
         tune.run()
 
     if args.fit:
-        if args.optimized:
+        if args.tuned:
             model.train.train_model(
-                num_filters=CONFIG['optimize']['number_filters'],
-                lr=CONFIG['optimize']['learning_rate'],
-                dropout_rate=CONFIG['optimize']['dropout_rate'],
+                num_filters=CONFIG['tuned']['number_filters'],
+                lr=CONFIG['tuned']['learning_rate'],
+                dropout_rate=CONFIG['tuned']['dropout_rate'],
                 export=args.model_format
             )
         else:
@@ -59,11 +59,11 @@ if __name__ == "__main__":
             if args.model_format == "onnx":
                 model.train.keras2onnx()
         else:
-            if args.optimized:
+            if args.tuned:
                 model.train.train_model(
-                    num_filters=CONFIG['optimize']['number_filters'],
-                    lr=CONFIG['optimize']['learning_rate'],
-                    dropout_rate=CONFIG['optimize']['dropout_rate'],
+                    num_filters=CONFIG['tuned']['number_filters'],
+                    lr=CONFIG['tuned']['learning_rate'],
+                    dropout_rate=CONFIG['tuned']['dropout_rate'],
                     export=args.model_format
                 )
             else:
