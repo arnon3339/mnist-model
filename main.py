@@ -7,13 +7,6 @@ import builtins
 import os
 from os import path
 
-try:
-    os.makedirs("output/models")
-    os.makedirs("assets/data")
-except:
-    pass
-
-
 random.seed(123456)
 
 with open("config.toml", "r") as f:
@@ -22,6 +15,14 @@ with open("config.toml", "r") as f:
 if __name__ == "__main__":
     """ Train model
     """
+
+    model_path = "output/models"
+    data_path = "assets/data"
+
+    if not path.exists(model_path):
+        os.makedirs(model_path)
+    if not path.exists(data_path):
+        os.makedirs(data_path)
 
     parser = argparse.ArgumentParser(
         prog="Drawing digit classifier",
